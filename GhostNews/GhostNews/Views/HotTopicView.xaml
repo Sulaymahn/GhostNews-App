@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GhostNews.Views.HotTopicView">
+    <Grid RowDefinitions="10*, *">
+        <CarouselView Grid.Row="0">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding Image}"
+                           Aspect="AspectFill"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <StackLayout Grid.Row="0"
+                     Grid.RowSpan="2"
+                     Margin="24, 0"
+                     HorizontalOptions="Center"
+                     VerticalOptions="End">
+            <IndicatorView HorizontalOptions="Center"
+                           IndicatorColor="LightGray"
+                           SelectedIndicatorColor="White"/>
+            <Frame Padding="8"
+                   CornerRadius="0">
+                <Label Text="Something"
+                       FontFamily="Bold"
+                       TextColor="{StaticResource PrimaryColor}"
+                       FontSize="24"
+                       HorizontalTextAlignment="Center" />
+            </Frame>
+        </StackLayout>
+    </Grid>
+</ContentView>

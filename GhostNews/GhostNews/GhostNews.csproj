@@ -1,0 +1,131 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Exo2-Black.ttf" />
+    <None Remove="Fonts\Exo2-BlackItalic.ttf" />
+    <None Remove="Fonts\Exo2-Bold.ttf" />
+    <None Remove="Fonts\Exo2-BoldItalic.ttf" />
+    <None Remove="Fonts\Exo2-ExtraBold.ttf" />
+    <None Remove="Fonts\Exo2-ExtraBoldItalic.ttf" />
+    <None Remove="Fonts\Exo2-ExtraLight.ttf" />
+    <None Remove="Fonts\Exo2-ExtraLightItalic.ttf" />
+    <None Remove="Fonts\Exo2-Italic.ttf" />
+    <None Remove="Fonts\Exo2-Light.ttf" />
+    <None Remove="Fonts\Exo2-LightItalic.ttf" />
+    <None Remove="Fonts\Exo2-Medium.ttf" />
+    <None Remove="Fonts\Exo2-MediumItalic.ttf" />
+    <None Remove="Fonts\Exo2-Regular.ttf" />
+    <None Remove="Fonts\Exo2-SemiBold.ttf" />
+    <None Remove="Fonts\Exo2-SemiBoldItalic.ttf" />
+    <None Remove="Fonts\Exo2-Thin.ttf" />
+    <None Remove="Fonts\Exo2-ThinItalic.ttf" />
+    <None Remove="Icons\materialdesignicons-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Exo2-Black.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-BlackItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-BoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-ExtraBold.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-ExtraLight.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-Italic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-Light.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-LightItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-Medium.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-MediumItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-SemiBold.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-Thin.ttf" />
+    <EmbeddedResource Include="Fonts\Exo2-ThinItalic.ttf" />
+    <EmbeddedResource Include="Icons\materialdesignicons-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Converters\" />
+    <Folder Include="Effects\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\GettingStartedPage.xaml.cs">
+      <DependentUpon>GettingStartedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ExploreView.xaml.cs">
+      <DependentUpon>ExploreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SignInView.xaml.cs">
+      <DependentUpon>SignInView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\CustomEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\SearchEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\ArticleDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\AuthorizationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ExploreView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProfileView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Themes\DarkTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Themes\LightTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ArticlePreview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HotTopicView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LogInView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SignInView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

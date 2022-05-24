@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:GhostNews.Controls"
+             xmlns:font="clr-namespace:GhostNews.Icons"
+             x:Class="GhostNews.Views.LogInView">
+    <Grid BackgroundColor="{DynamicResource BackgroundColor}">
+        <!--#region Background Image-->
+        <Image Aspect="AspectFill"
+               Source="{DynamicResource BG}" />
+        <!--#endregion-->
+
+        <!--#region Backdrop -->
+        <BoxView BackgroundColor="Black"
+                 Opacity="0" />
+        <!--#endregion-->
+
+        <Grid ColumnDefinitions="*, 100"
+              RowDefinitions="32, 64"
+              ColumnSpacing="0"
+              RowSpacing="0"
+              VerticalOptions="Start">
+
+            <!--#region Alert -->
+            <Frame HeightRequest="64"
+                   Padding="8"
+                   Grid.Row="1"
+                   TranslationX="-300"
+                   HasShadow="False"
+                   CornerRadius="0"
+                   Grid.Column="0"
+                   x:Name="alert">
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center">
+                    <Label FontFamily="FontIcon"
+                           Text="{x:Static font:IconFont.Alert}"
+                           FontSize="16"
+                           TextColor="White" />
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="Center">
+                        <Label Text="Incorrect email or password"
+                               FontFamily="Bold"
+                               FontSize="12"
+                               TextColor="White"
+                               x:Name="alertTitle" />
+                        <Label Text="Try entering a correct information again"
+                               FontFamily="Regular"
+                               FontSize="14"
+                               TextColor="White"
+                               x:Name="alertMessage" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--#endregion-->
+
+            <!--#region BackButton -->
+            <Frame BackgroundColor="{DynamicResource EntryPlaceholderColor}"
+                   Padding="0"
+                   CornerRadius="0"
+                   HasShadow="False"
+                   Grid.Row="1"
+                   Grid.Column="1">
+                <Label FontSize="20"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Sign up"
+                                  FontFamily="Bold" />
+                            <Span Text='{x:Static font:IconFont.ArrowRight}'
+                                  FontFamily="FontIcon" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="OnBack" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <!--#endregion-->
+        </Grid>
+
+        <!--#region SignInContent -->
+        <StackLayout VerticalOptions="Center"
+                     Spacing="16"
+                     Margin="24, 0">
+            <StackLayout>
+                <Label Text="Hello Again!&#x0a;Welcome&#x0a;back"
+                       FontSize="32"
+                       FontFamily="Black" />
+                <controls:CustomEntry PlaceholderText="Email Address"
+                                      Icon="{x:Static font:IconFont.Email}"
+                                      x:Name="emailEntry" />
+                <controls:CustomEntry PlaceholderText="Password"
+                                      Icon="{x:Static font:IconFont.Lock}"
+                                      IsPassword="True"
+                                      x:Name="passwordEntry" />
+            </StackLayout>
+            <Button Text="login"
+                    Style="{DynamicResource DefaultButton}"
+                    BackgroundColor="{DynamicResource PrimaryColor}"
+                    Clicked="OnSignIn" />
+
+            <Label FontFamily="Medium"
+                   FontSize="12">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an account? " />
+                        <Span Text="Sign up"
+                              TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnBack"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+        <!--#endregion-->
+
+        <Label TextColor="{DynamicResource TextColor}"
+               FontSize="40"
+               HorizontalOptions="End"
+               VerticalOptions="End"
+               Margin="24">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{x:Static font:IconFont.ThemeLightDark}"
+                          FontFamily="FontIcon"
+                          FontSize="12" />
+                    <Span Text="   Change theme"
+                          FontFamily="Bold"
+                          FontSize="12" />
+                </FormattedString>
+            </Label.FormattedText>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ChangeTheme"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
+</ContentView>

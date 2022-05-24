@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GhostNews.Views.ArticlePreview"
+             Padding="0"
+             BackgroundColor="White">
+    <Grid RowDefinitions="120, 16, 32">
+        <Image Aspect="AspectFill"
+               Source="{Binding Image}" />
+        <Label Text="{Binding AuthorID}"
+               TextColor="Crimson"/>
+        <Label Grid.Row="1"
+               Text="{Binding Date}"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource EntryPlaceholderColor}"/>
+        <Label Text="{Binding Title}"
+               Margin="16, 0"
+               LineBreakMode="TailTruncation"
+               FontFamily="Bold"
+               FontSize="16"
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="Center"
+               TextColor="{StaticResource PrimaryColor}"
+               Grid.Row="2"/>
+    </Grid>
+</ContentView>

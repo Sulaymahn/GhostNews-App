@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:font="clr-namespace:GhostNews.Icons"
+             xmlns:pages="clr-namespace:GhostNews.Pages"
+             x:Class="GhostNews.Pages.HomePage"
+             BackgroundColor="{DynamicResource ReallyBackgroundColor}">
+    <Grid>
+        <StackLayout Padding="24">
+            <Grid ColumnDefinitions="80, *"
+                  RowDefinitions="80">
+                <Image Source="{Binding Image}"
+                       Aspect="AspectFill" />
+                <StackLayout Grid.Column="1"
+                             Orientation="Horizontal">
+                    <StackLayout VerticalOptions="Center"
+                                 Padding="8, 0">
+                        <Label FontFamily="Bold"
+                               HorizontalTextAlignment="Start"
+                               FontSize="18"
+                               TextColor="{DynamicResource TextColor}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding FirstName, StringFormat='{0} '}" />
+                                    <Span Text="{Binding Surname}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="{Binding Username, StringFormat='@{0}'}"
+                               FontFamily="Regular"
+                               HorizontalTextAlignment="Start"
+                               FontSize="12"
+                               TextColor="{DynamicResource TextColor}" />
+                    </StackLayout>
+                    <Label Text="{x:Static font:IconFont.Close}"
+                           TextColor="{DynamicResource TextColor}"
+                           FontSize="30"
+                           FontFamily="FontIcon"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="EndAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Tapped="ExpandView" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <CollectionView VerticalScrollBarVisibility="Never"
+                            x:Name="collection"
+                            SelectionMode="Single"
+                            SelectionChanged="collection_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="4" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="16"
+                               BackgroundColor="Transparent"
+                               CornerRadius="0">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Icon}"
+                                       FontFamily="FontIcon"
+                                       TextColor="{DynamicResource TextColor}"
+                                       FontSize="30"
+                                       Margin="0, 0, 8, 0" />
+                                <Label Text="{Binding Title}"
+                                       TextColor="{DynamicResource TextColor}"
+                                       FontFamily="Bold"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="16" />
+
+                            </StackLayout>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal" />
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor"
+                                                    Value="{DynamicResource EntryPlaceholderColor}" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+        
+            <pages:ExplorePage x:Name="explorePage"
+                               Scale="0.8"/>
+
+            <pages:ProfilePage x:Name="profilePage"
+                           Scale="0.8" />
+
+        <BoxView Scale="0.8"
+                 TranslationY="300"
+                 x:Name="touchDetector">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ExpandView" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        
+        <Label Text="{x:Static font:IconFont.Menu}"
+               TextColor="{DynamicResource TextColor}"
+               x:Name="hamburger"
+               Margin="24"
+               FontSize="30"
+               FontFamily="FontIcon"
+               VerticalTextAlignment="Start"
+               VerticalOptions="Start"
+               HorizontalOptions="EndAndExpand">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                      Tapped="HideView" />
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
+</ContentPage>

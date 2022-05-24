@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:controls="clr-namespace:GhostNews.Controls"
+       xmlns:font="clr-namespace:GhostNews.Icons"
+       x:DataType="controls:CustomEntry"
+       x:Class="GhostNews.Controls.CustomEntry"
+       HasShadow="False"
+       Padding="8, 4"
+       CornerRadius="0"
+       BackgroundColor="{DynamicResource EntryBackgroundColor}">
+    <Grid ColumnDefinitions="32, *, 48">
+        <Label FontFamily="FontIcon"
+               Text="{Binding Icon}"
+               TextColor="{DynamicResource EntryTextColor}"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               FontSize="16"/>
+        <controls:InvisibleEntry Text="{Binding Text, Mode=TwoWay}"
+                                 FontFamily="Regular"
+                                 Placeholder="{Binding PlaceholderText, Mode=TwoWay}"
+                                 PlaceholderColor="{DynamicResource EntryPlaceholderColor}"
+                                 TextColor="{DynamicResource EntryTextColor}"
+                                 MaxLength="30"
+                                 Grid.Column="1"
+                                 IsPassword="{Binding IsPassword}"
+                                 Keyboard="{Binding Keyboard, Mode=TwoWay}">
+        </controls:InvisibleEntry>
+        <ImageButton IsVisible="{Binding IsPassword}"
+                     Clicked="ImageButton_Clicked"
+                     WidthRequest="48"
+                     Padding="14, 0"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="End"
+                     Grid.Column="2">
+            <ImageButton.Source>
+                <FontImageSource FontFamily="FontIcon"
+                                 Color="{DynamicResource EntryTextColor}"
+                                 Glyph="{x:Static font:IconFont.EyeOff}"/>
+            </ImageButton.Source>
+        </ImageButton>
+    </Grid>
+</Frame>

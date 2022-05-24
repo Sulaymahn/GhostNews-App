@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="GhostNews.Themes.DarkTheme">
+    <Color x:Key="ReallyBackgroundColor">#111</Color>
+    <Color x:Key="BackgroundColor">#222</Color>
+    <Color x:Key="AlmostBackgroundColor">#333</Color>
+    <Color x:Key="PrimaryColor">#1C5D50</Color>
+    <Color x:Key="TextColor">#DDD</Color>
+    <Color x:Key="SecondaryColor">OrangeRed</Color>
+    <Color x:Key="EntryPlaceholderColor">#22DDDDDD</Color>
+    <Color x:Key="EntryBackgroundColor">#222</Color>
+    <Color x:Key="EntryTextColor">#DDD</Color>
+
+    <Style x:Key="Header"
+           TargetType="Label">
+        <Setter Property="FontFamily"
+                Value="Black" />
+        <Setter Property="FontSize"
+                Value="40" />
+        </Style>
+
+        <Style x:Key="Paragraph"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="Light" />
+            <Setter Property="FontSize"
+                    Value="16" />
+        </Style>
+
+        <Style x:Key="SubHeader"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="24" />
+        </Style>
+
+        <Style x:Key="Username"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="24" />
+        </Style>
+
+        <Style x:Key="Tag"
+               TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="24" />
+        </Style>
+
+        <Style x:Key="DefaultButton"
+               TargetType="Button">
+            <Setter Property="FontFamily"
+                    Value="Black" />
+            <Setter Property="TextColor"
+                    Value="White" />
+            <Setter Property="BackgroundColor"
+                    Value="{DynamicResource SecondaryColor}" />
+            <Setter Property="CornerRadius"
+                    Value="0" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{DynamicResource TextColor}" />
+        </Style>
+        <Style TargetType="Page">
+            <Setter Property="BackgroundColor"
+                    Value="{DynamicResource BackgroundColor}" />
+        </Style>
+        <Style TargetType="ContentView">
+            <Setter Property="BackgroundColor"
+                    Value="{DynamicResource BackgroundColor}" />
+        </Style>
+</ResourceDictionary>

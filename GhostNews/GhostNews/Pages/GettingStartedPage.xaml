@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GhostNews.Pages.GettingStartedPage"
+             xmlns:beh="clr-namespace:GhostNews.Behaviours"
+             BackgroundColor="{DynamicResource PrimaryColor}">
+    <Grid RowDefinitions="*, 64">
+        <CarouselView IndicatorView="indicatorView"
+                      x:Name="car"
+                      IsBounceEnabled="False"
+                      Loop="False">
+            <CarouselView.Behaviors>
+                <beh:CarouselViewParallaxBehavior ParallaxOffset="80" />
+            </CarouselView.Behaviors>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="3*, *">
+                        <Image Grid.RowSpan="2"
+                               TranslationX="{Binding Position}"
+                               Scale="1.45"
+                               Source="{Binding Image}"
+                               Aspect="AspectFill"
+                               x:Name="image" />
+                        <StackLayout Grid.Row="1"
+                                     Padding="28, 16"
+                                     Spacing="16">
+                            <Label Text="{Binding Title}"
+                                   HorizontalTextAlignment="Center"
+                                   Opacity="{Binding XOpacity}"
+                                   Style="{DynamicResource Header}"
+                                   TextColor="White" />
+                            <Label Text="{Binding Paragraph}"
+                                   HorizontalTextAlignment="Center"
+                                   Opacity="{Binding XOpacity}"
+                                   Style="{DynamicResource Paragraph}"
+                                   TextColor="White" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal"
+                     Margin="24, 16">
+            <IndicatorView x:Name="indicatorView"
+                           IndicatorsShape="Square"
+                           IndicatorSize="3.5"
+                           SelectedIndicatorColor="{DynamicResource SecondaryColor}"
+                           IndicatorColor="White" />
+            <Button Text="Skip"
+                    Style="{DynamicResource DefaultButton}"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="EndAndExpand" 
+                    Clicked="OnSkip"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

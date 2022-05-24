@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:controls="clr-namespace:GhostNews.Controls"
+       xmlns:fonts="clr-namespace:GhostNews.Icons"
+       x:Class="GhostNews.Controls.SearchEntry"
+       Padding="8, 4"
+       BackgroundColor="Transparent"
+       BorderColor="{DynamicResource TextColor}"
+       CornerRadius="0">
+    <Grid ColumnDefinitions="32, *">
+        <Label Text="{x:Static fonts:IconFont.Magnify}"
+               FontFamily="FontIcon"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="18"
+               TextColor="{DynamicResource TextColor}"/>
+        <controls:InvisibleEntry Placeholder="Search Article"
+                                 Grid.Column="1"
+                                 PlaceholderColor="{DynamicResource EntryPlaceholderColor}"
+                                 TextColor="{DynamicResource TextColor}"
+                                FontFamily="Medium"/>
+    </Grid>
+</Frame>

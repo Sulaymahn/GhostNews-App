@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:font="clr-namespace:GhostNews.Icons"
+             xmlns:controls="clr-namespace:GhostNews.Controls"
+             x:Class="GhostNews.Views.SignInView">
+
+    <Grid>
+        
+        <!--#region Background Image-->
+        <Image Aspect="AspectFill"
+               Source="{DynamicResource BG}"/>
+        <!--#endregion-->
+
+        <!--#region Backdrop -->
+        <BoxView BackgroundColor="Black"
+                 Opacity="0" />
+        <!--#endregion-->
+
+        <Grid ColumnDefinitions="100, *"
+              RowDefinitions="32, 64"
+              ColumnSpacing="0"
+              RowSpacing="0"
+              VerticalOptions="Start">
+            <!--#region Alert -->
+            <Frame HeightRequest="64"
+                   Padding="8"
+                   Grid.Row="1"
+                   TranslationX="300"
+                   HasShadow="False"
+                   CornerRadius="0"
+                   Grid.Column="1"
+                   x:Name="alert">
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center">
+                    <Label FontFamily="FontIcon"
+                           Text="{x:Static font:IconFont.Alert}"
+                           FontSize="16"
+                           TextColor="White" />
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="Center">
+                        <Label FontFamily="Bold"
+                               FontSize="12"
+                               TextColor="White"
+                               x:Name="alertTitle" />
+                        <Label FontFamily="Regular"
+                               FontSize="14"
+                               TextColor="White"
+                               x:Name="alertMessage" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--#endregion-->
+
+            <!--#region BackButton -->
+            <Frame BackgroundColor="{DynamicResource EntryPlaceholderColor}"
+                   Padding="0"
+                   CornerRadius="0"
+                   HasShadow="False"
+                   Grid.Row="1"
+                   Grid.Column="0">
+                <Label FontSize="20"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text='{x:Static font:IconFont.ArrowLeft}'
+                                  FontFamily="FontIcon"/>
+                            <Span Text="Log in"
+                                  FontFamily="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="OnBack"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+            <!--#endregion-->
+        </Grid>
+
+        <!--#region SignInContent -->
+        <StackLayout VerticalOptions="Center"
+                     Spacing="16"
+                     Margin="24, 0">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Spacing="0"
+                             VerticalOptions="Center">
+                    <Label Text="Hello!"
+                           FontSize="32"
+                           FontFamily="Black" />
+                    <Label Text="Signup to"
+                           FontSize="32"
+                           FontFamily="Black" />
+                    <Label Text="get started"
+                           FontSize="32"
+                           FontFamily="Black" />
+                </StackLayout>
+                <Frame Padding="0"
+                       x:Name="profileFrame"
+                       HeightRequest="150"
+                       WidthRequest="150"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"
+                       CornerRadius="100"
+                       HasShadow="False">
+                    <Grid>
+                        <Image Source="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_960_720.png"
+                               Aspect="AspectFill"
+                               x:Name="profilePictureImage" />
+                        <Grid TranslationX="40"
+                              TranslationY="35">
+                            <Ellipse Fill="#1C5D50"
+                                     StrokeThickness="4"
+                                     WidthRequest="20"
+                                     HeightRequest="20"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center" />
+                            <Label FontFamily="FontIcon"
+                                   Text="{x:Static font:IconFont.Camera}"
+                                   TextColor="White"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   FontSize="12"
+                                   TranslationY="1" />
+                        </Grid>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Tapped="OnProfileClicked" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+            <StackLayout>
+                <controls:CustomEntry PlaceholderText="Full name"
+                                      Icon="{x:Static font:IconFont.AccountDetails}"
+                                      x:Name="fullnameEntry"/>
+                <controls:CustomEntry PlaceholderText="Username"
+                                      Icon="{x:Static font:IconFont.Account}"
+                                      x:Name="usernameEntry"/>
+                <controls:CustomEntry PlaceholderText="Email Address"
+                                      Icon="{x:Static font:IconFont.Email}"
+                                      x:Name="emailEntry" />
+                <controls:CustomEntry PlaceholderText="Password"
+                                      Icon="{x:Static font:IconFont.Lock}"
+                                      IsPassword="True"
+                                      x:Name="passwordEntry" />
+            </StackLayout>
+            <Button Text="signup"
+                    Style="{DynamicResource DefaultButton}"
+                    BackgroundColor="{DynamicResource PrimaryColor}"
+                    Clicked="OnSignIn" />
+            <Label FontFamily="Medium"
+                   FontSize="12">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Already have an account? " />
+                        <Span Text="Log In"
+                              TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnBack" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+        <!--#endregion-->
+
+        <Label TextColor="{DynamicResource TextColor}"
+               HorizontalOptions="End"
+               VerticalOptions="End"
+               Margin="24">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{x:Static font:IconFont.ThemeLightDark}"
+                          FontFamily="FontIcon"
+                          FontSize="12"/>
+                    <Span Text="   Change theme"
+                          FontFamily="Bold"
+                          FontSize="12"/>
+                </FormattedString>
+            </Label.FormattedText>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ChangeTheme" />
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
+</ContentView>

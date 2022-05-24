@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "254851688603",
+    "project_id": "ghost-news-66e53",
+    "storage_bucket": "ghost-news-66e53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254851688603:android:4990c911c12cd3d420be3e",
+        "android_client_info": {
+          "package_name": "com.unghostdude.ghostnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254851688603-gna4tpjc20j5nvrmsce2djc8invcqoa3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIscae0ArCtzY2tOb-Ofn3maEeX3kYY1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254851688603-gna4tpjc20j5nvrmsce2djc8invcqoa3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

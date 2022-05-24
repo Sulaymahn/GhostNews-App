@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:GhostNews.Views"
+             x:Class="GhostNews.Pages.ArticleDetailPage"
+             BackgroundColor="{DynamicResource BackgroundColor}">
+    <ScrollView VerticalScrollBarVisibility="Never"
+                Padding="24">
+        <StackLayout>
+            <Label Text="{Binding Category}"
+                   FontSize="12"
+                   FontFamily="Medium"/>
+            <Label Text="{Binding Title}"
+                   FontSize="24"
+                   FontFamily="Bold"/>
+            <Label FontSize="12"
+                   FontFamily="Medium">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding DatePosted, StringFormat='{0:D} by '}"/>
+                        <Span Text="{Binding AuthorID, StringFormat='{0}'}"
+                              FontFamily="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Image Source="{Binding Image}"
+                   Aspect="AspectFill"
+                   HeightRequest="200" />
+            <Label Text="{Binding ImageCaption, StringFormat='Credit {0}'}"
+                   FontSize="10"
+                   Margin="0, 2"
+                   FontFamily="Bold"
+                   HorizontalTextAlignment="Center"/>
+            <CollectionView ItemsSource="{Binding Paragraphs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"
+                               FontSize="18"
+                               FontFamily="Medium"
+                               Margin="0, 8" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:GhostNews.Controls"
+             x:Class="GhostNews.Views.ExploreView"
+             BackgroundColor="{DynamicResource BackgroundColor}">
+    <Grid RowDefinitions="*, 2*, 2*"
+          Padding="0, 24"
+          RowSpacing="8">
+        <Grid RowDefinitions="3*, *">
+            <StackLayout Spacing="16"
+                         Padding="24, 0">
+            <Label Text="Explore"
+                   FontFamily="Black"
+                   FontSize="24" />
+                <controls:SearchEntry />
+            </StackLayout>
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Categories}"
+                            Margin="24, 0, 0, 0"
+                            SelectionMode="Single"
+                            SelectionChanged="OnArticleSelected">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       ItemSpacing="16"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{DynamicResource AlmostBackgroundColor}"
+                               CornerRadius="0"
+                               Padding="16, 2">
+                            <Label Text="{Binding}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="{DynamicResource TextColor}"
+                                   FontFamily="SemiBold"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <StackLayout Grid.Row="1"
+                     Padding="24, 0"
+                     Spacing="16">
+            <Label Text="Hot topics"
+                   FontFamily="Black"
+                   FontSize="24"
+                   TextColor="{DynamicResource TextColor}" />
+            <Grid RowDefinitions="10*, *">
+                <CarouselView x:Name="htcarouselView"
+                              ItemsSource="{Binding HotTopics}"
+                              Loop="False"
+                              IsBounceEnabled="False"
+                              IndicatorView="indicator">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="0"
+                                   CornerRadius="0">
+                                <Image Source="{Binding Image}"
+                                       Aspect="AspectFill">
+                                </Image>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <StackLayout VerticalOptions="EndAndExpand"
+                             HorizontalOptions="Center"
+                             Grid.RowSpan="2"
+                             WidthRequest="280">
+                    <IndicatorView x:Name="indicator"
+                                   MaximumVisible="8"
+                                   HorizontalOptions="Center"
+                                   IndicatorsShape="Square"
+                                   IndicatorColor="#BBB"
+                                   SelectedIndicatorColor="{DynamicResource SecondaryColor}">
+                        <IndicatorView.IndicatorTemplate>
+                            <DataTemplate>
+                                <Rectangle ScaleX="2"
+                                           Scale="3"
+                                           Margin="2, 0"/>
+                            </DataTemplate>
+                        </IndicatorView.IndicatorTemplate>
+                    </IndicatorView>
+                    <Frame CornerRadius="0"
+                        HasShadow="False"
+                           BackgroundColor="{DynamicResource AlmostBackgroundColor}">
+                    <Label x:Name="hottopiclabel"
+                               MaxLines="2"
+                               LineBreakMode="TailTruncation"
+                               TextColor="{DynamicResource TextColor}"
+                           FontFamily="Bold"
+                           FontSize="16" />
+                </Frame>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2"
+                     Padding="24, 0, 0, 0"
+                     Spacing="16">
+            <Label Text="For you"
+                   FontFamily="Black"
+                   FontSize="24" />
+            <CollectionView ItemsSource="{Binding ForYou}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnArticleSelected">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       ItemSpacing="16" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid WidthRequest="200"
+                              RowDefinitions="3*, *">
+                            <Image Source="{Binding Image}"
+                                   Aspect="AspectFill" />
+                            <StackLayout Grid.Row="1">
+                                <Label Text="May 12, 2021"
+                                       FontFamily="Light"
+                                       FontSize="12"
+                                       Opacity="0.5" />
+                                <Label Text="{Binding Title}"
+                                       MaxLines="2"
+                                       LineBreakMode="TailTruncation"
+                                       FontFamily="SemiBold"
+                                       FontSize="16" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentView>
